@@ -8,10 +8,7 @@ def removeDuplicates(nums):
         if nums[idx] != nums[i]:
             idx += 1
             nums[idx] = nums[i]
+            
+    print(idx+1)
 
-    return idx+1
-
-array = [1,1,2]
-
-out = removeDuplicates(array)
-print(out)
+removeDuplicates([1,1,2])
