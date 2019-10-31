@@ -8,7 +8,7 @@ def intersect(nums1, nums2):
     for i in range(len(nums1)):
         if nums1[i] in nums2:
             nums2.remove(nums1[i])
-            out.append(nums1[i)
+            out.append(nums1[i])
     print(out)
 
 array1 = [1,2,2,1]
