@@ -13,6 +13,6 @@ def removeDuplicates(nums):
     print(nums)
     return index+1
 
-nums = [0,0,1,1,1,2,2,3,3,4]
+nums = [0,0,1,1,1,2,2,3,3,4,5,6]
 
 print(removeDuplicates(nums))
