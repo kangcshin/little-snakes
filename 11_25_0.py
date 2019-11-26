@@ -16,6 +16,18 @@ def maxArea(height):
         
     return out
 
+    # def maxArea(self, height: List[int]) -> int:
+    #     begin, end, output = 0, len(height)-1, 0
+    #     while begin < end:
+    #         h = height[begin] if height[begin] < height[end] else height[end]
+    #         temp = h * (end - begin)
+    #         output = max(output, temp)
+    #         if height[begin] < height[end]:
+    #             begin += 1
+    #         else:
+    #             end -= 1
+                
+    #     return output
 
 input_array = [1,8,6,2,5,4,8,3,7]
 print(maxArea(input_array))
