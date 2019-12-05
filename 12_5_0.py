@@ -47,7 +47,6 @@ def compute_min_cost(num_nodes, base_mst, poss_mst):
     else:
         return -1
 
-
 if __name__ == '__main__':
     n = 6
     edges = [[1, 4], [4, 5], [2, 3]]
