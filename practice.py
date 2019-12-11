@@ -271,6 +271,64 @@ def rollDice(A):
 A = [1,6,2,3]
 print(rollDice(A))
 ############################################################################################################
+'''
+Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+
+    Integers in each row are sorted in ascending from left to right.
+    Integers in each column are sorted in ascending from top to bottom.
+
+Example:
+
+Consider the following matrix:
+
+[
+  [1,   4,  7, 11, 15],
+  [2,   5,  8, 12, 19],
+  [3,   6,  9, 16, 22],
+  [10, 13, 14, 17, 24],
+  [18, 21, 23, 26, 30]
+]
+
+Given target = 5, return true.
+
+Given target = 20, return false.
+
+'''
+# Brute Force Way (Check every element in matrix)
+# def searchMatrix(matrix, target):
+#     if not matrix or not target:
+#         return False
+#     for i in range(len(matrix)):
+#         for j in range(len(matrix[0])):
+#             if matrix[i][j] == target:
+#                 return True
+#     return False
+
+def searchMatrix(matrix, target):
+#     if not matrix or not target:
+#         return False
+    
+    col, row = len(matrix)-1, 0
+    
+    while col >= 0 and row < len(matrix[0]):
+        if matrix[col][row] == target:
+            return True
+        elif matrix[col][row] < target:
+            row += 1
+        else:
+            col -= 1
+                
+    return False
+
+
+
+matrix = [[1,   4,  7, 11, 15],
+          [2,   5,  8, 12, 19],
+          [3,   6,  9, 16, 22],
+          [10, 13, 14, 17, 24],
+          [18, 21, 23, 26, 30]]
+
+print(searchMatrix(matrix, 20))
 ############################################################################################################
 ############################################################################################################
 ############################################################################################################
