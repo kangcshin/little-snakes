@@ -556,7 +556,153 @@ def maxAverageSubtree(root):
     return result[1]
 
 ############################################################################################################
+'''
+Top N Competitors
+Input:
+numCompetitors=6
+topNcompetitors=2
+competitors=[asdfasdfasdf]
+numReviews=6
+'''
+
+
+'''
+def top_n_competitors(competitors, reviews, k):
+    if not competitors or not reviews:
+        return []
+    
+    # Get counts of competitors in reviews
+    counts = {competitor: 0 for competitor in competitors}
+    for review in reviews:
+        for word in review.split():
+            word = word.lower()
+            if word in counts:
+                counts[word] += 1
+    
+    # Sort by the count first
+    counts = sorted(counts.items(), key = lambda x: x[0])
+
+    # Sort by lexicographical order
+    return [word for word, count in sorted(counts, key = lambda x: x[1], reverse = True)][:k]
+
+'''
+
+'''
+import heapq
+import unittest
+
+
+def top_n_competitor(top_n_comps, comps, reviews):
+    if not top_n_comps or not comps or not reviews:
+        return []
+
+    comps_mention = dict()
+
+    for comp in comps:
+        comps_mention[comp] = 0
+
+    for review in reviews:
+        for word in review.split(" "):
+            word = word.lower()
+            if word in comps_mention:
+                comps_mention[word] += 1
+
+    pq = []
+    heapq.heapify(pq)
+
+    for key, val in comps_mention.items():
+        heapq.heappush(pq, Comp(key, val))
+
+    return [shop.name for shop in heapq.nsmallest(top_n_comps, pq)]
+
+
+class Comp:
+    def __init__(self, name, num_mentioned):
+        self.name = name
+        self.num_mentioned = num_mentioned
+
+    def __lt__(self, other):
+        # sorted by num_mentioned descending first then name ascending
+        return self.name < other.name if self.num_mentioned == other.num_mentioned else self.num_mentioned > other.num_mentioned
+
+
+class Test(unittest.TestCase):
+    def test_n_competitors(self):
+        top_n_comps = 2
+        comps = ["newshop", "shopnow", "afshion", "fashionbeats", "mymarket", "tcellular"]
+        reviews = ["newshop is providing good service in the city;everyone should try newshop",
+                   "best services by newshop",
+                   "fashionbeats has great services in the city",
+                   "Im proud to have fashionbeats",
+                   "mymarket has awesome service",
+                   "thank Newshop for the quick delivery"]
+        self.assertEqual(top_n_competitor(top_n_comps, comps, reviews), ["newshop", "fashionbeats"],
+                         "Should return top competitors that have mentioned most in review")
+
+        top_n_comps = 2
+        comps = ["newshop", "shopnow", "afshion", "fashionbeats", "mymarket", "tcellular"]
+        reviews = ["newshop is providing good service in the city;everyone should try newshop",
+                   "best services by newshop",
+                   "fashionbeats has great services in the city",
+                   "Im proud to have fashionbeats",
+                   "afshion has awesome service",
+                   "thank afshion for the quick delivery"]
+        self.assertEqual(top_n_competitor(top_n_comps, comps, reviews), ["newshop", "afshion"],
+                         "Should return top competitors that have mentioned most in review. "
+                         "If there is same mentioned number, get the one appear first in alphabetical table")
+'''
 ############################################################################################################
+'''
+You have a map that marks the location of a treasure island. Some of the map area has jagged rocks and dangerous reefs. Other areas are safe to sail in. There are other explorers trying to find the treasure. So you must figure out a shortest route to the treasure island.
+
+Assume the map area is a two dimensional grid, represented by a matrix of characters. You must start from the top-left corner of the map and can move one block up, down, left or right at a time. The treasure island is marked as X in a block of the matrix. X will not be at the top-left corner. Any block with dangerous rocks or reefs will be marked as D. You must not enter dangerous blocks. You cannot leave the map area. Other areas O are safe to sail in. The top-left corner is always safe. Output the minimum number of steps to get to the treasure.
+
+Example:
+
+Input:
+[['O', 'O', 'O', 'O'],
+ ['D', 'O', 'D', 'O'],
+ ['O', 'O', 'O', 'O'],
+ ['X', 'D', 'D', 'O']]
+
+Output: 5
+Explanation: Route is (0, 0), (0, 1), (1, 1), (2, 1), (2, 0), (3, 0) The minimum route takes 5 steps.
+'''
+
+
+from collections import deque
+
+def treasureIsland(matrix):
+  # If starting index itself is the 'D'
+  if matrix[0][0] == 'D':
+    return -1
+  # Able to move up, down, right, left
+  directions = [[1,0], [-1,0], [0,1], [0,-1]]
+  q = deque() # Replace with []
+  # Storing the index and level information in the queue
+  q.append([0, 0, 0])
+  while q:
+    i, j, level = q.popleft() # Replace queue with [] and pop(0)
+    # If the treasure island is found, return the level
+    if matrix[i][j] == 'X':
+      return level
+     # Marking the node as Visited by reusing the 'D' flag
+    matrix[i][j] = 'D'
+    # Traversing the neighbors
+    for dirs in directions:
+        x = i + dirs[0]
+        y = j + dirs[1]
+        if 0 <= x < len(matrix) and 0 <= y < len(matrix[0]) and matrix[x][y] != 'D':
+            q.append((x, y, level+1))
+  return -1
+
+
+inputMap = [['O', 'O', 'O', 'O'],
+            ['D', 'O', 'D', 'O'],
+            ['O', 'O', 'O', 'O'],
+            ['X', 'D', 'D', 'O']]
+
+print(treasureIsland(inputMap))
 ############################################################################################################
 ############################################################################################################
 ############################################################################################################
