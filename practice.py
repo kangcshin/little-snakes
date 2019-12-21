@@ -704,6 +704,67 @@ inputMap = [['O', 'O', 'O', 'O'],
 
 print(treasureIsland(inputMap))
 ############################################################################################################
+'''
+You have a map that marks the locations of treasure islands. Some of the map area has jagged rocks and dangerous reefs. Other areas are safe to sail in. There are other explorers trying to find the treasure. So you must figure out a shortest route to one of the treasure islands.
+
+Assume the map area is a two dimensional grid, represented by a matrix of characters. You must start from one of the starting point (marked as S) of the map and can move one block up, down, left or right at a time. The treasure island is marked as X. Any block with dangerous rocks or reefs will be marked as D. You must not enter dangerous blocks. You cannot leave the map area. Other areas O are safe to sail in. Output the minimum number of steps to get to any of the treasure islands.
+
+Example:
+
+Input:
+[['S', 'O', 'O', 'S', 'S'],
+ ['D', 'O', 'D', 'O', 'D'],
+ ['O', 'O', 'O', 'O', 'X'],
+ ['X', 'D', 'D', 'O', 'O'],
+ ['X', 'D', 'D', 'D', 'O']]
+
+Output: 3
+Explanation:
+You can start from (0,0), (0, 3) or (0, 4). The treasure locations are (2, 4) (3, 0) and (4, 0). Here the shortest route is (0, 3), (1, 3), (2, 3), (2, 4).
+'''
+
+from collections import deque # Can be replaced with []
+import sys
+
+def treasureIsland(matrix):
+    # Maximum number for default comparison
+    result = sys.maxsize
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            if matrix[i][j] == 'S':
+                # Look for closest path to 'X' from every 'S'
+                temp = bfs(i, j, matrix)
+                # Keep the shortest path
+                result = min(result, temp)
+    return result
+
+def bfs(i, j, matrix):
+    # Storing the index and level information in the queue
+    q = deque()
+    q.append([i,j,0])
+    # Able to move up, down, right, left
+    directions = [[1,0], [-1,0], [0,1], [0,-1]]
+    while q:
+        i, j, level = q.popleft() # pop(0)
+        # If the treasure island is found, return the level
+        if matrix[i][j] == 'X':
+            return level
+        # Traversing the neighbors
+        for dirs in directions:
+            x = i + dirs[0]
+            y = j + dirs[1]
+            if 0 <= x < len(matrix) and 0 <= y < len(matrix[0]) and matrix[x][y] != 'D':
+                q.append((x, y, level+1))
+    return sys.maxsize
+
+
+inputMap = [['S', 'O', 'O', 'S', 'S'],
+            ['D', 'O', 'D', 'O', 'D'],
+            ['O', 'O', 'O', 'O', 'X'],
+            ['X', 'D', 'D', 'O', 'O'],
+            ['X', 'D', 'D', 'D', 'O']]
+
+print(treasureIsland(inputMap))
 ############################################################################################################
 ############################################################################################################
 
