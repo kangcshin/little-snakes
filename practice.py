@@ -809,6 +809,64 @@ nums = [1, 1, 2, 45, 46, 46]
 target = 47
 print(uniquePairs(nums, target))
 ############################################################################################################
+'''
+Given a 2D grid, each cell is either a zombie 1 or a human 0. Zombies can turn adjacent (up/down/left/right) human beings into zombies every hour. Find out how many hours does it take to infect all humans?
+
+Example:
+
+Input:
+[[0, 1, 1, 0, 1],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 0, 0, 0]]
+
+Output: 2
+
+Explanation:
+At the end of the 1st hour, the status of the grid:
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 0, 1, 1],
+ [1, 1, 1, 0, 1]]
+
+At the end of the 2nd hour, the status of the grid:
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]]
+
+'''
+
+def zombie(matrix):
+    hours, q = 0, []
+    
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            if matrix[i][j] == 1:
+                q.append([i, j, 0])
+                
+    while q:
+        x, y, hours = q.pop(0)
+        # Able to spread up, down, right, left
+        spread_direction = [[1,0], [-1,0], [0,1], [0,-1]]
+        for dirs in spread_direction:
+            x += dirs[0]
+            y += dirs[1]
+            if 0 <= x < len(matrix) and 0 <= y < len(matrix[0]) and matrix[x][y] == 0:
+                # Turn to zombie
+                matrix[x][y] = 1
+                # Save zombie state of next hour
+                q.append([x, y, hours+1])
+    return hours
+
+
+input_matrix = [[0, 1, 1, 0, 1],
+                [0, 1, 0, 1, 0],
+                [0, 0, 0, 0, 1],
+                [0, 1, 0, 0, 0]]
+
+print(zombie(input_matrix))
+                
 ############################################################################################################
 ############################################################################################################
 ############################################################################################################
