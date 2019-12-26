@@ -868,6 +868,23 @@ input_matrix = [[0, 1, 1, 0, 1],
 print(zombie(input_matrix))
                 
 ############################################################################################################
+    def trap(self, height: List[int]) -> int:
+        if len(height) < 3:
+            return 0
+        
+        low, high = 0, len(height)-1
+        ground, rain = 0, 0
+        
+        while low < high:
+            if height[low] <= ground:
+                rain += (ground - height[low])
+                low += 1
+            elif height[high] <= ground:
+                rain += (ground - height[high])
+                high -= 1
+            else:
+                ground = min(height[low], height[high])
+        return rain
 ############################################################################################################
 ############################################################################################################
 
