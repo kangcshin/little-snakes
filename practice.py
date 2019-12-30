@@ -937,6 +937,15 @@ class LRUCache:
                     
         return num_islands
 ############################################################################################################
+from collections import defaultdict
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        answer = defaultdict(list)
+        for s in strs:
+            temp = ''.join(sorted(s))
+            answer[temp].append(s)
+        return answer.values()
+        
 ############################################################################################################
 ############################################################################################################
 
