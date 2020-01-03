@@ -1049,6 +1049,28 @@ class Solution:
         return output
                 
 ############################################################################################################
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+class Solution:
+    def copyRandomList(self, head: 'Node') -> 'Node':
+        copy_map = collections.defaultdict(lambda:Node(0, None, None))
+        copy_map[None] = None
+        
+        node_old = head
+        while node_old:
+            copy_map[node_old].val = node_old.val
+            copy_map[node_old].next = copy_map[node_old.next]
+            copy_map[node_old].random = copy_map[node_old.random]
+            node_old = node_old.next
+        return copy_map[head]
+        
+    
 ############################################################################################################
 ############################################################################################################
 ############################################################################################################
