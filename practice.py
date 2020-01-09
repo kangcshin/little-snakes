@@ -1198,6 +1198,19 @@ class Solution:
             
         return answer
 ############################################################################################################
+class Solution:
+    def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
+        if not root:
+            return []
+        
+        output, level, direction = [], [root], 1
+        
+        while level:
+            output.append([n.val for n in level][::direction])
+            direction *= -1
+            level = [child for node in level for child in (node.left, node.right) if child]
+        
+        return output
 ############################################################################################################
 ############################################################################################################
 
