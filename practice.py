@@ -1185,6 +1185,18 @@ class Solution:
         return sorted_counter[:k]
         
 ############################################################################################################
+class Solution:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+        counter = {}
+        answer = []
+        for word in words:
+            counter[word] = counter.get(word, 0) + 1
+        sorted_counter = sorted(counter.items(), key=lambda item: (-item[-1], item[0]))
+        
+        for i in range(k):
+            answer.append(sorted_counter[i][0])
+            
+        return answer
 ############################################################################################################
 ############################################################################################################
 ############################################################################################################
