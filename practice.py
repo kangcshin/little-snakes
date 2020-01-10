@@ -1254,6 +1254,41 @@ class Solution:
             stack.append(a)
         return False
 ############################################################################################################
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def boundaryOfBinaryTree(self, root: TreeNode) -> List[int]:
+        
+        if not root:
+            return []
+        
+        output = [root.val]
+        
+        def dfs(root, isleft, isright):
+            if root:
+                # append when going down from the left or at leaf node
+                if (not root.left and not root.right) or isleft:
+                    output.append(root.val)
+                if root.left and root.right:
+                    dfs(root.left, isleft, False)
+                    dfs(root.right, False, isright)
+                else:
+                    dfs(root.left, isleft, isright)
+                    dfs(root.right, isleft, isright)
+                # append to boundary when coming up from the right
+                if (root.left or root.right) and isright:
+                    output.append(root.val)
+                    
+        dfs(root.left, True, False)
+        dfs(root.right, False, True)
+        
+        return output
+
 ############################################################################################################
 ############################################################################################################
 ############################################################################################################
