@@ -1290,6 +1290,22 @@ class Solution:
         return output
 
 ############################################################################################################
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        output, pointer = 0, 0
+        seen = {}
+        
+        for idx, c in enumerate(s):
+            if c in seen and pointer <= seen[c]:
+                pointer = seen[c]+1
+            else:
+                # print(idx-pointer)
+                output = max(output, idx-pointer+1)
+                # print(output)
+            seen[c] = idx
+            
+        return output
+                
 ############################################################################################################
 ############################################################################################################
 ############################################################################################################
