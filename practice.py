@@ -48,8 +48,7 @@ island_map = [['1','1','0','0','0'],
 
 print(numIslands(island_map))
 
-############################################################################################################
-
+ 
 '''
 A string S of lowercase letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
 
@@ -90,8 +89,7 @@ def partitionLabels(S):
 S = "ababcbacadefegdehijhklij"
 print(partitionLabels(S))
 
-############################################################################################################
-
+ 
 '''
 There are 8 prison cells in a row, and each cell is either occupied or vacant.
 
@@ -162,8 +160,7 @@ N = 7
 # N = 1000000000
 print(prisonAfterNDays(cells, N))
 
-############################################################################################################
-'''
+ '''
 Description:
 Implement a function to return product suggestions using products from a product repository after each character is typed by the customer in the search bar.
 If there are more than THREE acceptable products, return the product name that is first in the alphabetical order.
@@ -220,8 +217,7 @@ repo = ["mobile", "mouse", "moneypot", "monitor", "mousepad"]
 query = "mouse"
 print(productSuggestion(5, repo, query))
 
-############################################################################################################
-'''
+ '''
 A six-sided die is a small cube with a different number of pips on each face (side), ranging from 1 to 6.
 On any two opposite side of the cube, the number of pips adds up to 7; that is, there are three pairs of opposite sides: 1 and 6, 2 and 5, and 3 and 4.
 There are N dice lying on a table, each showing the pips on its top face. In one move, you can take one die and rotate it to an adjacent face.
@@ -270,8 +266,7 @@ def rollDice(A):
 
 A = [1,6,2,3]
 print(rollDice(A))
-############################################################################################################
-'''
+ '''
 Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
 
     Integers in each row are sorted in ascending from left to right.
@@ -329,8 +324,7 @@ matrix = [[1,   4,  7, 11, 15],
           [18, 21, 23, 26, 30]]
 
 print(searchMatrix(matrix, 20))
-############################################################################################################
-'''
+ '''
 Given a positive integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
 
 Example:
@@ -375,8 +369,7 @@ def generateMatrix(n):
 
 
 print(generateMatrix(3))
-############################################################################################################
-'''
+ '''
 Given a string s and an int k, return all unique substrings of s of size k with k distinct characters.
 
 Example 1:
@@ -417,8 +410,7 @@ def substringk(s, k):
 s = "awaglknagawunagwkwagl"
 k = 4
 print(substringk(s, k))
-############################################################################################################
-'''
+ '''
 Given a string s and an int k, return an int representing the number of substrings (not unique) of s with exactly k distinct characters. If the given string doesn't have k distinct characters, return 0.
 https://leetcode.com/problems/subarrays-with-k-different-integers
 
@@ -461,8 +453,7 @@ s = 'pqpqs'
 k = 2
 
 print(subStrings(s, k))
-############################################################################################################
-'''
+ '''
 Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants. The tree s could also be considered as a subtree of itself.
 
 Example 1:
@@ -502,8 +493,7 @@ class Solution:
             return isSame(s, t) or self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
         
         return s is t
-############################################################################################################
-'''
+ '''
 Given an N-ary tree, find the subtree with the maximum average. Return the root of the subtree.
 A subtree of a tree is the node which have at least 1 child plus all its descendants. The average value of a subtree is the sum of its values, divided by the number of nodes.
 
@@ -555,8 +545,7 @@ def maxAverageSubtree(root):
    
     return result[1]
 
-############################################################################################################
-'''
+ '''
 Top N Competitors
 Input:
 numCompetitors=6
@@ -651,8 +640,7 @@ class Test(unittest.TestCase):
                          "Should return top competitors that have mentioned most in review. "
                          "If there is same mentioned number, get the one appear first in alphabetical table")
 '''
-############################################################################################################
-'''
+ '''
 You have a map that marks the location of a treasure island. Some of the map area has jagged rocks and dangerous reefs. Other areas are safe to sail in. There are other explorers trying to find the treasure. So you must figure out a shortest route to the treasure island.
 
 Assume the map area is a two dimensional grid, represented by a matrix of characters. You must start from the top-left corner of the map and can move one block up, down, left or right at a time. The treasure island is marked as X in a block of the matrix. X will not be at the top-left corner. Any block with dangerous rocks or reefs will be marked as D. You must not enter dangerous blocks. You cannot leave the map area. Other areas O are safe to sail in. The top-left corner is always safe. Output the minimum number of steps to get to the treasure.
@@ -703,8 +691,7 @@ inputMap = [['O', 'O', 'O', 'O'],
             ['X', 'D', 'D', 'O']]
 
 print(treasureIsland(inputMap))
-############################################################################################################
-'''
+ '''
 You have a map that marks the locations of treasure islands. Some of the map area has jagged rocks and dangerous reefs. Other areas are safe to sail in. There are other explorers trying to find the treasure. So you must figure out a shortest route to one of the treasure islands.
 
 Assume the map area is a two dimensional grid, represented by a matrix of characters. You must start from one of the starting point (marked as S) of the map and can move one block up, down, left or right at a time. The treasure island is marked as X. Any block with dangerous rocks or reefs will be marked as D. You must not enter dangerous blocks. You cannot leave the map area. Other areas O are safe to sail in. Output the minimum number of steps to get to any of the treasure islands.
@@ -765,8 +752,7 @@ inputMap = [['S', 'O', 'O', 'S', 'S'],
             ['X', 'D', 'D', 'D', 'O']]
 
 print(treasureIsland(inputMap))
-############################################################################################################
-'''
+ '''
 Given an int array nums and an int target, find how many unique pairs in the array such that their sum is equal to target. Return the number of pairs.
 
 Example 1:
@@ -808,8 +794,7 @@ def uniquePairs(nums, target):
 nums = [1, 1, 2, 45, 46, 46]
 target = 47
 print(uniquePairs(nums, target))
-############################################################################################################
-'''
+ '''
 Given a 2D grid, each cell is either a zombie 1 or a human 0. Zombies can turn adjacent (up/down/left/right) human beings into zombies every hour. Find out how many hours does it take to infect all humans?
 
 Example:
@@ -867,8 +852,7 @@ input_matrix = [[0, 1, 1, 0, 1],
 
 print(zombie(input_matrix))
                 
-############################################################################################################
-    def trap(self, height: List[int]) -> int:
+     def trap(self, height: List[int]) -> int:
         if len(height) < 3:
             return 0
         
@@ -885,8 +869,7 @@ print(zombie(input_matrix))
             else:
                 ground = min(height[low], height[high])
         return rain
-############################################################################################################
-from collections import OrderedDict
+ from collections import OrderedDict
 class LRUCache:
 
     def __init__(self, capacity: int):
@@ -904,8 +887,7 @@ class LRUCache:
             self.cache.popitem(last=False)
         self.cache[key] = value
         self.cache.move_to_end(key)
-############################################################################################################
-    def longestPalindrome(self, s: str) -> str:
+     def longestPalindrome(self, s: str) -> str:
         out = ''
         for i in range(len(s)):
             out = max(self.helper(s,i,i), self.helper(s,i,i+1), out, key=len)
@@ -916,8 +898,7 @@ class LRUCache:
             l -= 1
             r += 1
         return s[l+1:r]
-############################################################################################################
-    def numIslands(self, grid: List[List[str]]) -> int:
+     def numIslands(self, grid: List[List[str]]) -> int:
         num_islands = 0
         
         def dfs(grid, i, j):
@@ -936,8 +917,7 @@ class LRUCache:
                     num_islands += 1
                     
         return num_islands
-############################################################################################################
-from collections import defaultdict
+ from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         answer = defaultdict(list)
@@ -946,8 +926,7 @@ class Solution:
             answer[temp].append(s)
         return answer.values()
         
-############################################################################################################
-class Solution:
+ class Solution:
     def copyRandomList(self, head: 'Node') -> 'Node':
         map_new = collections.defaultdict(lambda:Node(0, None, None))
         map_new[None] = None
@@ -959,8 +938,7 @@ class Solution:
             map_new[node_old].random = map_new[node_old.random]
             node_old = node_old.next
         return map_new[head]
-############################################################################################################
-    def addTwoNumbers(self, l1, l2):
+     def addTwoNumbers(self, l1, l2):
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -974,8 +952,7 @@ class Solution:
             n /= 10
             last.next = last = ListNode(n % 10)
         return first
-############################################################################################################
-from collections import OrderedDict
+ from collections import OrderedDict
 class LRUCache:
 
     def __init__(self, capacity: int):
@@ -993,8 +970,7 @@ class LRUCache:
             self.cache.popitem(last=False)
         self.cache[key] = value
         self.cache.move_to_end(key)
-############################################################################################################
-class Solution:
+ class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         num_islands = 0
         
@@ -1015,8 +991,7 @@ class Solution:
                     num_islands += 1
                     dfs(grid, i, j)
         return num_islands
-############################################################################################################
-class Solution:
+ class Solution:
     def longestPalindrome(self, s: str) -> str:
         answer = ''
         
@@ -1032,8 +1007,7 @@ class Solution:
             
         return answer
 
-############################################################################################################
-class Solution:
+ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         output = 0
         pointer = 0
@@ -1048,8 +1022,7 @@ class Solution:
             
         return output
                 
-############################################################################################################
-"""
+ """
 # Definition for a Node.
 class Node:
     def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
@@ -1071,8 +1044,7 @@ class Solution:
         return copy_map[head]
         
     
-############################################################################################################
-class Solution:
+ class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         rooms = []
         intervals.sort(key=lambda x: x[0])
@@ -1084,14 +1056,12 @@ class Solution:
             heapq.heappush(rooms, i[1])
             
         return len(rooms)
-############################################################################################################
-class Solution:
+ class Solution:
     def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
         points.sort(key=lambda points: points[0]**2+points[1]**2)
         return points[:K]
         
-############################################################################################################
-from collections import defaultdict
+ from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         answer = defaultdict(list)
@@ -1100,8 +1070,7 @@ class Solution:
             answer[temp].append(s)
         return answer.values()
 
-############################################################################################################
-from random import choice
+ from random import choice
 class RandomizedSet():
     def __init__(self):
         """
@@ -1141,8 +1110,7 @@ class RandomizedSet():
         Get a random element from the set.
         """
         return choice(self.list)
-############################################################################################################
-class TicTacToe:
+ class TicTacToe:
 
     def __init__(self, n: int):
         """
@@ -1174,8 +1142,7 @@ class TicTacToe:
 # Your TicTacToe object will be instantiated and called as such:
 # obj = TicTacToe(n)
 # param_1 = obj.move(row,col,player)
-############################################################################################################
-class Solution:
+ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         counter = {}
         for n in nums:
@@ -1184,8 +1151,7 @@ class Solution:
         
         return sorted_counter[:k]
         
-############################################################################################################
-class Solution:
+ class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
         counter = {}
         answer = []
@@ -1197,8 +1163,7 @@ class Solution:
             answer.append(sorted_counter[i][0])
             
         return answer
-############################################################################################################
-class Solution:
+ class Solution:
     def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
         if not root:
             return []
@@ -1211,8 +1176,7 @@ class Solution:
             level = [child for node in level for child in (node.left, node.right) if child]
         
         return output
-############################################################################################################
-class Solution:
+ class Solution:
     def prisonAfterNDays(self, cells: List[int], N: int) -> List[int]:
         
         def nextday(cells):
@@ -1238,8 +1202,7 @@ class Solution:
                 cells = nextday(cells)
                 
         return cells
-############################################################################################################
-class Solution:
+ class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
         # a3 stores the second largest element
         a3 = float('-inf')
@@ -1253,8 +1216,7 @@ class Solution:
                 a3 = stack.pop()
             stack.append(a)
         return False
-############################################################################################################
-# Definition for a binary tree node.
+ # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
@@ -1289,8 +1251,7 @@ class Solution:
         
         return output
 
-############################################################################################################
-class Solution:
+ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         output, pointer = 0, 0
         seen = {}
@@ -1306,8 +1267,7 @@ class Solution:
             
         return output
                 
-############################################################################################################
-class Solution:
+ class Solution:
     def maxArea(self, height: List[int]) -> int:
         area = 0
         begin, end = 0, len(height)-1
@@ -1321,8 +1281,7 @@ class Solution:
                 end -= 1
             
         return area
-############################################################################################################
-class Solution:
+ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         output = []
@@ -1348,8 +1307,7 @@ class Solution:
                     right -= 1
                     
         return output
-############################################################################################################
-class Solution:
+ class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
@@ -1364,8 +1322,7 @@ class Solution:
         # print(nums)
         nums[i:] = reversed(nums[i:])
   
-############################################################################################################
-class Solution:
+ class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
@@ -1376,8 +1333,7 @@ class Solution:
             for j in range(i):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
         return matrix
-############################################################################################################
-class Solution:
+ class Solution:
     def canJump(self, nums: List[int]) -> bool:
         pointer = len(nums)-1
         while pointer != 0:
@@ -1388,8 +1344,7 @@ class Solution:
                 if i == 0:
                     return False
         return True
-############################################################################################################
-class Solution:
+ class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         carry = 0
         number = 1
@@ -1407,9 +1362,6 @@ class Solution:
         
         return digits
         
-############################################################################################################
-############################################################################################################
-############################################################################################################
-
+   
 
 
