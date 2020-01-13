@@ -1382,7 +1382,49 @@ class Solution:
                     start, end = i, j
                 i += 1
         return s[start:end]
+
+
+class Solution:
+    def __init__(self):
+        self.queue = []
         
+    def read(self, buf, n):
+        """
+        :type buf: Destination buffer (List[str])
+        :type n: Number of characters to read (int)
+        :rtype: The number of actual characters read (int)
+        """
+        out = 0
+        count = n
+        buffer = [' ']*4
+        
+        while count > 0:
+            k = read4(buffer)
+            # print(k)
+            self.queue.extend(buffer[:k])
+            # print(self.queue)
+            count = min(len(self.queue), n-out)
+            buf[out:out+count] = [self.queue.pop(0) for _ in range(count)]
+            out += count
+
+        return out
+
+class Solution:
+    def lengthOfLongestSubstringTwoDistinct(self, s: str) -> int:
+        output = 0
+        begin, end = 0, 0
+        
+        while end < len(s):
+            if len(s) == 1:
+                return 1
+            while len(set(s[begin:end+1])) > 2 and begin < end:
+                begin += 1
+            output = max(output, end-begin+1)
+            end += 1
+            
+        return output
+
+
    
 
 
