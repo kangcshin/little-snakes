@@ -1454,6 +1454,15 @@ class Solution:
             if set(out) <= set(time):
                 break
         return out
+
+class Solution:
+    def findReplaceString(self, S: str, indexes: List[int], sources: List[str], targets: List[str]) -> str:
+        for idx, source, target in sorted(zip(indexes, sources, targets), reverse=True):
+            if S[idx:idx+len(source)] == source:
+                S = S[:idx] + target + S[idx+len(source):]
+            
+        return S
+
    
 
 
