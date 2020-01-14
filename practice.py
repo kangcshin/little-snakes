@@ -1463,6 +1463,17 @@ class Solution:
             
         return S
 
+class Solution:
+    def maxDistToClosest(self, seats: List[int]) -> int:
+        output = 0
+        pointer = -1
+        
+        for i in range(len(seats)):
+            if seats[i]:
+                output = max(output, i if pointer < 0 else (i-pointer)//2)
+                pointer = i
+        return max(output, len(seats)-pointer-1)
+
    
 
 
