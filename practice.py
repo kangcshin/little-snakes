@@ -1424,7 +1424,36 @@ class Solution:
             
         return output
 
+class Solution:
+    def findMissingRanges(self, nums: List[int], lower: int, upper: int) -> List[str]:
+        out = []
+        
+        nums.append(upper+1)
+        pre = lower -1
+        
+        for num in nums:
+            if num == pre+2:
+                out.append(str(num-1))
+            if num > pre+2:
+                out.append(str(pre+1) + '->' + str(num-1))
+            pre = num
+            
+        return out
 
+class Solution:
+    def nextClosestTime(self, time: str) -> str:
+        h, m = time.split(':')
+        current = int(h) * 60 + int(m)
+        out = None
+        
+        for i in range(current+1, current+1441):
+            t = i % 1440
+            h, m = t // 60, t % 60
+            out = '%02d:%02d' % (h, m)
+            
+            if set(out) <= set(time):
+                break
+        return out
    
 
 
