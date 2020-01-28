@@ -1600,3 +1600,17 @@ class Solution:
         return output
 
 
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        output = [1] * len(nums)
+        left, right = 1, 1
+        
+        for i in range(len(nums)):
+            output[i] *= left
+            left *= nums[i]
+            output[~i] *= right
+            right *= nums[~i]
+            
+        return output
+        
+        
