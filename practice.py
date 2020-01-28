@@ -1553,3 +1553,36 @@ class Solution:
         return s[start:end]
 
 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        if not lists:
+            return
+        if len(lists) == 1:
+            return lists[0]
+        
+        def helper(left, right):
+            temp = current = ListNode(0)
+            while left and right:
+                if left.val < right.val:
+                    current.next = left
+                    left = left.next
+                else:
+                    current.next = right
+                    right = right.next
+                current = current.next
+            current.next = left or right
+            return temp.next
+        
+        mid = len(lists) // 2
+        left = self.mergeKLists(lists[:mid])
+        right = self.mergeKLists(lists[mid:])
+        
+        return helper(left, right)
+    
+    
